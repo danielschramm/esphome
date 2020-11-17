@@ -53,7 +53,7 @@ CONFIG_SCHEMA = cv.Schema({
     cv.Optional(CONF_BIT_RATE, default='125KBPS'): cv.enum(CAN_SPEEDS, upper=True),
     cv.Optional(CONF_ON_FRAME): automation.validate_automation({
         cv.GenerateID(CONF_TRIGGER_ID): cv.declare_id(CanbusTrigger),
-        cv.GenerateID(CONF_CAN_ID): cv.int_range(min=1, max=4096),
+        cv.GenerateID(CONF_CAN_ID): cv.int_range(min=-2147483648, max=2147483648),
     }),
 }).extend(cv.COMPONENT_SCHEMA)
 
